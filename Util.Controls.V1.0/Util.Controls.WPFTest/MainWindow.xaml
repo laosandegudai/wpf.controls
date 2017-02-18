@@ -1,21 +1,43 @@
-﻿<Window x:Class="Util.Controls.WPFTest.MainWindow"
+﻿<local:WindowBase x:Class="Util.Controls.WPFTest.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="MainWindow" Height="800" Width="1200" x:Name="main" >
-    <Window.Resources>
+        xmlns:local="clr-namespace:Util.Controls;assembly=Util.Controls"
+        xmlns:shell="http://schemas.microsoft.com/winfx/2006/xaml/presentation/shell"
+        Title="MainWindow" Height="800" Width="1200" x:Name="main"
+        local:ControlAttachProperty.CornerRadius="15" 
+            >
+    <local:WindowBase.CaptionBackground>
+        <LinearGradientBrush EndPoint="0.966,0.966" StartPoint="0.024,0.023">
+            <GradientStop Color="#FF3494E6" Offset="0"/>
+            <GradientStop Color="#FFEC6EAD" Offset="1"/>
+            <GradientStop Color="#FF9480C8" Offset="0.525"/>
+        </LinearGradientBrush>
+    </local:WindowBase.CaptionBackground>
+    <local:WindowBase.Background>
+        <LinearGradientBrush EndPoint="0.966,0.966" StartPoint="0.024,0.023">
+            <GradientStop Color="#FF3494E6" Offset="0"/>
+            <GradientStop Color="#FFEC6EAD" Offset="1"/>
+            <GradientStop Color="#FF9480C8" Offset="0.525"/>
+        </LinearGradientBrush>
+    </local:WindowBase.Background>
+    <local:WindowBase.Resources>
         <Style TargetType="{x:Type Button}">
             <Setter Property="Height" Value="24"/>
             <Setter Property="Margin" Value="2"/>
-            <Setter Property="Background" Value="Blue"/>
+            <Setter Property="Background" Value="#EC6EAD">
+
+            </Setter>
             <Setter Property="Command" Value="{Binding OpenCommand,ElementName=main}"/>
         </Style>
-    </Window.Resources>
+    </local:WindowBase.Resources>
+
+
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="150"/>
             <ColumnDefinition Width="87*" />
         </Grid.ColumnDefinitions>
-        <StackPanel Grid.Column="0" Orientation="Vertical">
+        <StackPanel Grid.Column="0" Orientation="Vertical" >
             <Button Tag="Page/Page_TextBox.xaml" >TextBox</Button>
             <Button Tag="Page/Page_Button.xaml" >Button</Button>
             <Button Tag="Page/Page_Image.xaml" >Image</Button>
@@ -32,6 +54,6 @@
             <Button Tag="Page/Page_MVVM.xaml">Page_MVVM</Button>
             <Button Tag="Page/Page_MultCase.xaml">Page_MultCase</Button>
         </StackPanel>
-        <Frame x:Name="PageContext" Grid.Column="1" BorderBrush="Blue" BorderThickness="1" NavigationUIVisibility="Visible"/>
+        <Frame x:Name="PageContext" Grid.Column="1"  BorderThickness="1" NavigationUIVisibility="Visible"/>
     </Grid>
-</Window>
+</local:WindowBase>

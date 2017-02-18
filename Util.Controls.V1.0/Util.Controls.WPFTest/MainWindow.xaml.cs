@@ -8,7 +8,7 @@ namespace Util.Controls.WPFTest
     /// <summary>
     /// MainWindow.xaml 的交互逻辑
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class MainWindow : WindowBase
     {
         public static readonly DependencyProperty OpenCommandProperty =
     DependencyProperty.Register("OpenCommand", typeof(RoutedCommand), typeof(MainWindow), new PropertyMetadata(null));
